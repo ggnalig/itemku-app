@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width } = Dimensions.get("window");
 const height = (width * 100) / 60;
@@ -8,25 +9,31 @@ export default function Header() {
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>
-        <Image
-          style={styles.logo}
-          source={{
-            uri: "https://i.imgur.com/pcGKcWV.png",
-          }}
-        ></Image>
+        <TouchableOpacity>
+          <Image
+            style={styles.logo}
+            source={{
+              uri: "https://i.imgur.com/pcGKcWV.png",
+            }}
+          ></Image>
+        </TouchableOpacity>
         <View style={styles.leftIcon}>
-          <Image
-            style={styles.icon}
-            source={{
-              uri: "https://i.imgur.com/PB9Xkme.png",
-            }}
-          ></Image>
-          <Image
-            style={styles.icon}
-            source={{
-              uri: "https://i.imgur.com/VRpqCFE.png",
-            }}
-          ></Image>
+          <TouchableOpacity>
+            <Image
+              style={styles.icon}
+              source={{
+                uri: "https://i.imgur.com/PB9Xkme.png",
+              }}
+            ></Image>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              style={styles.icon}
+              source={{
+                uri: "https://i.imgur.com/VRpqCFE.png",
+              }}
+            ></Image>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

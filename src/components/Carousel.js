@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Image, Dimensions, StyleSheet, ScrollView } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width } = Dimensions.get("window");
 const height = (width * 100) / 60;
@@ -15,11 +16,13 @@ export default function Carousel() {
     <View style={styles.container}>
       <ScrollView pagingEnabled horizontal>
         {items.map((item, idx) => (
-          <Image
-            key={idx}
-            style={styles.card}
-            source={{ uri: `${item}` }}
-          ></Image>
+          <TouchableOpacity>
+            <Image
+              key={idx}
+              style={styles.card}
+              source={{ uri: `${item}` }}
+            ></Image>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>

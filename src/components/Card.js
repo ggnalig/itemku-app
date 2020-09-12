@@ -83,7 +83,7 @@ export default function Card() {
   const [liked, setLiked] = useState("true");
   const [color, setColor] = useState("#808080");
   const changeColor = (id) => {
-    if (items[id - 1].isLiked == "false") {
+    if (color == "#808080") {
       setColor("red");
     } else {
       setColor("#808080");
@@ -92,27 +92,32 @@ export default function Card() {
   return (
     <ScrollView style={styles.container}>
       {items.map((item, index) => (
-        <View key={index} style={styles.card}>
-          <Image source={{ uri: `${item.image}` }} style={styles.image}></Image>
-          <View style={styles.descriptionContainer}>
-            <View style={styles.iconContainer}>
-              <Text style={styles.name}>{item.name}</Text>
-              <TouchableOpacity onPress={() => changeColor(item.id)}>
-                <Image
-                  style={{
-                    width: 20,
-                    height: 20,
-                    marginTop: 5,
-                    tintColor: `${color}`,
-                  }}
-                  source={{ uri: "https://i.imgur.com/HamkYO6.png" }}
-                ></Image>
-              </TouchableOpacity>
+        <TouchableOpacity>
+          <View key={index} style={styles.card}>
+            <Image
+              source={{ uri: `${item.image}` }}
+              style={styles.image}
+            ></Image>
+            <View style={styles.descriptionContainer}>
+              <View style={styles.iconContainer}>
+                <Text style={styles.name}>{item.name}</Text>
+                <TouchableOpacity onPress={() => changeColor(item.id)}>
+                  <Image
+                    style={{
+                      width: 20,
+                      height: 20,
+                      marginTop: 5,
+                      tintColor: `${color}`,
+                    }}
+                    source={{ uri: "https://i.imgur.com/HamkYO6.png" }}
+                  ></Image>
+                </TouchableOpacity>
+              </View>
+              <Text style={styles.price}>Rp {item.price}</Text>
+              <Text>{item.sold}++ Produk Terjual</Text>
             </View>
-            <Text style={styles.price}>Rp {item.price}</Text>
-            <Text>{item.sold}++ Produk Terjual</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </ScrollView>
   );
@@ -132,6 +137,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     flexDirection: "row",
     height: 100,
+    marginHorizontal: 10,
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
