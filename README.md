@@ -1,3 +1,3 @@
 # itemku-app
-*master branch is itemku-app
-*Prototype-Project branch is where the prototype is
+1. master branch is itemku-app
+2. Prototype-Project branch is where the prototype is
